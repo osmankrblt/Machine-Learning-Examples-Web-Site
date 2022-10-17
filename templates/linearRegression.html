@@ -1,0 +1,69 @@
+{% extends "mainTemplate.html" %}
+
+{% block content %}
+
+<div class="container">
+
+    <div class="row">
+        
+        <div class="column train">
+     <h2 class="pre-line"> Train </h2>
+        {% if score %}
+        <a> Train score: {{score}} </a>
+        {% endif %}    
+
+            
+        <form method=post enctype=multipart/form-data action="/linear_regression">
+            <input type=file name=file>
+            <button class ="button-style" type="submit" value="train" name="train">Run Train</button>
+          </form>
+        </div>
+        
+        <div class="column test">
+        
+        <h2 class="pre-line"> Test </h2>
+        
+        {% if score %}
+             <form method=post  name="predictform" action="/linear_regression">
+            
+         
+            {%for input in inputLabels%}
+
+                <label class="form-text-style " >{{input}}</label><br>
+                <input class="form-style" type="text" id={{input}} name={{input}}><br>
+
+            {% endfor %}
+            
+            {%for output in outputLabels%}
+
+                <label class="form-text-style " >{{output}}</label><br>
+                <input class="form-style" type="text" id={{output}} name={{output}} readonly><br>
+
+            {% endfor %}
+
+            <input class="button-style" type="submit" value="predict" name="predict">
+             </form>
+          
+        
+        {% endif %}
+
+           
+     
+        </div>
+    </div>
+   
+  
+</div>
+ <div class="lr-result">
+
+  <h2 class="pre-line"> Result </h2>
+
+    {% if result %}
+
+    <h2>{{result}}</h2>
+
+
+    {% endif %}
+    </div>
+
+{% endblock %}
