@@ -2,7 +2,21 @@
 
 {% block content %}
 
+{% if methodName == "Linear Regression" %}
+        {% set action = "/linear_regression" %}
+             
+{% elif methodName == "Logistic Regression" %}
+        {%  set action = "/logistic_regression" %}
+{% endif %}
+
+
 <div class="container">
+
+    {% if methodName %}
+
+    <h1>{{methodName}}</h1>
+
+    {% endif %}
 
     <div class="row">
         
@@ -13,8 +27,8 @@
         {% endif %}    
 
             
-        <form method=post enctype=multipart/form-data action="/linear_regression">
-            <input type=file name=file>
+        <form method=post enctype=multipart/form-data action={{action}}>
+            <input type=file name=file required>
             <button class ="button-style" type="submit" value="train" name="train">Run Train</button>
           </form>
         </div>
@@ -24,13 +38,15 @@
         <h2 class="pre-line"> Test </h2>
         
         {% if score %}
-             <form method=post  name="predictform" action="/linear_regression">
+            
+        
+             <form method=post  name="predictform" action={{action}}>
             
          
             {%for input in inputLabels%}
 
                 <label class="form-text-style " >{{input}}</label><br>
-                <input class="form-style" type="text" id={{input}} name={{input}}><br>
+                <input class="form-style" type="number" id={{input}} name={{input}} required><br>
 
             {% endfor %}
             

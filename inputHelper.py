@@ -28,7 +28,7 @@ def csv2array(csvPath):
 
     csvFile.dropna(inplace=True)
 
-    inputLabels = np.array(list([x  for x in csvFile.columns.values if x.isupper()]))
+    inputLabels = np.array(list([x  for x in csvFile.columns.values if x[0].isupper()]))
     outputLabels = np.setdiff1d(csvFile.columns.values,inputLabels)
    
 
