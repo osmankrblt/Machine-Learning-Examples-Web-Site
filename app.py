@@ -1,6 +1,7 @@
 from flask import Flask,render_template,flash,request,session
-import os,numpy as np
-from inputHelper  import csv2array
+import os
+import numpy as np
+from inputHelper import csv2array
 from linear_regression import *
 from logistic_regression import *
 from bayesian_regression import *
@@ -8,7 +9,7 @@ from bayesian_regression import *
 
 ALLOWED_EXTENSIONS = {"csv"}
 UPLOADED_FILE_NAME = "uploadedImage"
-STATIC_FOLDER='uploadFolder'
+STATIC_FOLDER = 'uploadFolder'
 
 
 

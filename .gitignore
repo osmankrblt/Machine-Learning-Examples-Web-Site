@@ -1,3 +1,5 @@
 __pycache__
 uploadFolder\uploadedImage.csv
 static\lr.pkl
+.idea
+after
