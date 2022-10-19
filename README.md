@@ -1,6 +1,9 @@
 # Machine-Learning-Examples-Web-Site
 
-We will train and predict through this project
+We will train and predict through this project. For now just numbers
+
+Website work on Heroku. 
+https://machine-learning--web-app.herokuapp.com
 
 
 ## Main Page
