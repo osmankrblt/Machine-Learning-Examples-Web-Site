@@ -1,5 +1,13 @@
 {% extends "mainTemplate.html" %}
 
+
+{% block head %}
+
+
+
+{% endblock %}
+
+
 {% block content %}
 
 {% if methodName == "Linear Regression" %}
@@ -8,6 +16,8 @@
 {% elif methodName == "Logistic Regression" %}
         {%  set action = "/logistic_regression" %}
 {% endif %}
+
+
 
 
 <div class="container">
@@ -50,12 +60,7 @@
 
             {% endfor %}
             
-            {%for output in outputLabels%}
-
-                <label class="form-text-style " >{{output}}</label><br>
-                <input class="form-style" type="text" id={{output}} name={{output}} readonly><br>
-
-            {% endfor %}
+            
 
             <input class="button-style" type="submit" value="predict" name="predict">
              </form>
@@ -76,7 +81,13 @@
 
     {% if result %}
 
-    <h2>{{result}}</h2>
+    {%for output in outputLabels%}
+
+    <h2>  {{output}} :=> {{result}}</h2>
+
+            {% endfor %}
+
+    
 
 
     {% endif %}

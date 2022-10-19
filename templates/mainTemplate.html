@@ -3,7 +3,37 @@
 <head>
 <title>Machine Learning</title>
 
+{% block head %}
+
+{% endblock %}
+
   <style>
+     .image {
+    width: 80%;
+    height: 80%;
+    object-fit: contain;
+   
+      }
+    .div-shadow {
+  box-shadow: 10px 10px;
+  
+  width: 30%;
+  background-color: red;
+}
+    .div-rules {
+
+  box-shadow: 10px 10px;
+  width: 40%;
+  height: 60%;
+  padding: 20px;
+      border: 2px solid green;
+      border-radius: 25px;
+  background-color: yellow;
+}
+.div-rules-text{
+  width:95%;
+    word-wrap: break-word;
+}
     .body {
       background-color: powderblue;
  
@@ -61,50 +91,26 @@
 <head>
 
 <body class="body">
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="/">
-    <img src="static/mainNavbarIcon.png" width="30" height="30" class="d-inline-block align-top" alt="">
-    Machine Learning Examples
-  </a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+  {% include "includes/navbar.html" %}
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      
-   
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Regression
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="/linear_regression">Linear Regression</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="/logistic_regression">Logistic Regression</a>
-          
-        </div>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Classification
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="/image_classification">Image Classification</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="/other_classification">Simple Classification</a>
-         
-        </div>
-      </li>
-     
-    </ul>
-  
-  </div>
-</nav>
+    <div class="container">
+    <br>
+    <div class="div-shadow">{% include "includes/messages.html" %}</div>
+        
+
+        {% block body %}
+
+        {% endblock %}
+
+    </div>
 
 {% block content %}
 
 {% endblock %}
+
+
+
+
 
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
